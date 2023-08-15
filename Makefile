@@ -22,7 +22,7 @@ ifneq ($(.SHELLSTATUS),0)
 	BRANCH := $(BRANCH)-dirty
 endif
 
-DOCKER_TAG := $(SHA)
+DOCKER_TAG ?= $(SHA)
 # Check if there is a TAG
 ifdef TAG
     DOCKER_TAG := $(TAG)
