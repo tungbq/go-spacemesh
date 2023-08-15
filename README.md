@@ -1,4 +1,4 @@
-# Test docker push
+# Test docker push - v1
 # [Spacemesh: A Programmable Cryptocurrency](https://spacemesh.io)
 
 [![license](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/spacemeshos/go-spacemesh/blob/master/LICENSE)
