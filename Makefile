@@ -22,14 +22,12 @@ ifneq ($(.SHELLSTATUS),0)
 	BRANCH := $(BRANCH)-dirty
 endif
 
-
 # Check if there is a TAG
 ifeq ($(TAG),)
-	DOCKER_TAG := $(SHA)
+    DOCKER_TAG := $(SHA)
 else
     DOCKER_TAG := $(TAG)
 endif
-
 
 DOCKER_IMAGE_REPO := go-spacemesh
 DOCKER_IMAGE = $(DOCKER_IMAGE_REPO):$(DOCKER_TAG)
