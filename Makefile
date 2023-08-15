@@ -2,7 +2,7 @@ VERSION ?= $(shell git describe --tags)
 LDFLAGS = -ldflags "-X main.version=${VERSION} -X main.commit=${COMMIT} -X main.branch=${BRANCH}"
 include Makefile-libs.Inc
 
-DOCKER_HUB ?= tungbq
+DOCKER_HUB ?= spacemeshos
 UNIT_TESTS ?= $(shell go list ./...  | grep -v systest/tests | grep -v cmd/node | grep -v cmd/gen-p2p-identity | grep -v cmd/trace | grep -v genvm/cmd)
 
 COMMIT = $(shell git rev-parse HEAD)
@@ -22,11 +22,10 @@ ifneq ($(.SHELLSTATUS),0)
 	BRANCH := $(BRANCH)-dirty
 endif
 
+DOCKER_TAG := $(SHA)
 # Check if there is a TAG
 ifdef TAG
     DOCKER_TAG := $(TAG)
-else
-    DOCKER_TAG := $(SHA)
 endif
 
 DOCKER_IMAGE_REPO := go-spacemesh
